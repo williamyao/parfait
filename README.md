@@ -14,10 +14,10 @@ explanation, see
 or consult the Clojure documentation.
 
 In addition to the concurrency primitives, Parfait also provides a
-readtable for easier usage of `DEREF`, called `PARFAIT-DEREF`. This
-makes `&X` the equivalent of `(DEREF X)`; the readtable should be merged
-into another before being used. Make sure that the readtables do not
-conflict in their usage of the macro character `&`.
+readtable for easier usage of `DEREF`, called `PARFAIT-DEREF`. Under
+this readtable, `&X` is the equivalent of `(DEREF X)`; the readtable
+should be merged into another before being used. Make sure that the
+readtables do not conflict in their usage of the macro character `&`.
 
 + **DEREF** OBJ
 
