@@ -3,21 +3,13 @@
 ;;;; Inspired by Clojure's core parallelism primitives.
 
 (defpackage #:parfait
-  (:use :cl :bordeaux-threads :named-readtables)
+  (:use :cl :bordeaux-threads)
   (:export #:deref
            #:promise
            #:deliver
            #:future
-           #:delay
-           #:parfait-deref))
+           #:delay))
 (in-package #:parfait)
-
-;;; This readtable is meant to be merged into another readtable, rather than
-;;; being used on its own.
-(defreadtable parfait-deref
-  (:macro-char #\^ (lambda (stream char)
-                     (declare (ignore char))
-                     (list 'deref (read stream t nil t)))))
 
 (defclass async-thunk ()
   ((value :accessor value)
