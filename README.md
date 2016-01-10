@@ -18,7 +18,7 @@ readtable for easier usage of `DEREF`, called
 `PARFAIT:DEREF-READTABLE`. Under this readtable, `^X` is the equivalent
 of `(DEREF X)`; the readtable should be merged into another before being
 used. Make sure that the readtables do not conflict in their usage of
-the macro character `^`, and `REQUIRE`/`ASDF:LOAD-SYSTEM` on
+the macro character `^`, and `REQUIRE` or `ASDF:LOAD-SYSTEM` on
 `parfait+readtable`, instead of just `parfait`.
 
 + **DEREF** OBJ
