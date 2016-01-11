@@ -21,8 +21,9 @@ notifications:
 
 install:
   - if [ "$LISP" = "allegro" ]; then sudo apt-get install libc6-dev-i386 libffi-dev:i386; fi
-  - sudo ./install-repo.bash
+  - git clone https://github.com/williamyao/parfait.git
   - curl -L https://github.com/sionescu/cl-travis/raw/master/install.sh | sh
+  - cd parfait
   - cl -e "(cl:in-package :cl-user)
            (dolist (p '(:alexandria :bordeaux-threads :fiveam))
              (ql:quickload p :verbose t))"
