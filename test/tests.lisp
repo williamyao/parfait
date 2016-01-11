@@ -72,7 +72,7 @@
 
 (def-test delay ()
   (let* ((val 0)
-         (d (delay (setf val (incf val)))))
+         (d (delay (incf val))))
     ;; Test that the body has been DELAYed i.e. not executed yet.
     (is (= val 0))
 
