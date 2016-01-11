@@ -1,40 +1,35 @@
 language: lisp
-sudo: required
 
 env:
   matrix:
-    - LISP=abcl
-    - LISP=sbcl
-    - LISP=sbcl32
     - LISP=ccl
     - LISP=ccl32
-    - LISP=clisp
-    - LISP=clisp32
+    - LISP=sbcl
+    - LISP=sbcl32
     - LISP=cmucl
     - LISP=ecl
 
 matrix:
   allow_failures:
-    # CIM not available for CMUCL
     - env: LISP=cmucl
+    - env: LISP=ecl
 
-# either use a local install.sh script or install it via curl. Feel
-# free to simplify this section in your own .travis.yml file.
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+
 install:
-  - if [ -x ./install.sh ] && head -2 ./install.sh | grep '^# cl-travis' > /dev/null;
-    then
-      ./install.sh;
-    else
-      curl https://raw.githubusercontent.com/luismbo/cl-travis/master/install.sh | sh;
-    fi
+  - if [ "$LISP" = "allegro" ]; then sudo apt-get install libc6-dev-i386 libffi-dev:i386; fi
+  - sudo ./install-repo.bash
+  - curl -L https://github.com/sionescu/cl-travis/raw/master/install.sh | sh
   - cl -e "(cl:in-package :cl-user)
            (dolist (p '(:alexandria :bordeaux-threads :fiveam))
              (ql:quickload p :verbose t))"
-
 script:
-#  - cl -e "(cl:in-package :cl-user)
-#           (asdf/find-system:load-asd \"parfait.asd\")
-#           (asdf/load-system \"parfait/test\")
-#           (uiop:quit (if (some #'5am::test-failure-p (5am:run 'parfait/test:parfait/test-suite))
-#                          1
-#                          0))"
+  - cl -e "(cl:in-package :cl-user)
+           (asdf/find-system:load-asd \"parfait.asd\")
+           (asdf:load-system \"parfait/test\")
+           (uiop:quit (if (some (lambda (x) (typep x '5am::test-failure))
+                                (5am:run :iolib))
+                          1 0))"
