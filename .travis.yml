@@ -20,6 +20,7 @@ notifications:
     on_failure: always
 
 install:
+  - if [ "$LISP" = "allegro" ]; then sudo apt-get install libc6-dev-i386 libffi-dev:i386; fi
   - curl -L https://github.com/luismbo/cl-travis/raw/master/install.sh | sh
   - cl -e "(cl:in-package :cl-user)
            (dolist (p '(:alexandria :bordeaux-threads :fiveam))
@@ -28,7 +29,7 @@ install:
 script:
   - cl -e "(cl:in-package :cl-user)
            (dolist (p '(:alexandria :bordeaux-threads :fiveam))
-             (ql:quickload p :verbose t))
+             (ql:quickload p :verbose t))          
            (asdf/find-system:load-asd \"parfait.asd\")
            (asdf:load-system \"parfait\")
            (uiop:quit (if (some (lambda (x) (typep x '5am::test-failure))
