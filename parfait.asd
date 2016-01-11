@@ -45,6 +45,7 @@
   :serial t
   :pathname "test"
   :components ((:file "package")
+               (:file "deadline")
                (:file "tests")
                (:file "sem-tests"))
   :perform (test-op (op sys)
