@@ -92,7 +92,3 @@
       (if (eq head tail)
           (setf head nil tail nil)
           (setf head (cdr head))))))
-
-
-
-
