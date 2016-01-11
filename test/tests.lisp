@@ -29,12 +29,7 @@
 (export 'deadline)
 
 ;;; Actual unit test definitions.
-(defpackage #:parfait/test
-  (:use :cl :fiveam :parfait)
-  (:export parfait/test-suite))
 (in-package #:parfait/test)
-
-(def-suite parfait/test-suite :description "All tests for Parfait.")
 (in-suite parfait/test-suite)
 
 (def-test promise ()

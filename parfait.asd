@@ -13,7 +13,8 @@
   :serial t
   :pathname "src"
   :components ((:file "package")
-               (:file "parfait"))
+               (:file "parfait")
+               (:file "semaphore"))
   :in-order-to ((test-op (test-op "parfait/test"))))
 
 (defsystem "parfait+readtable"
@@ -23,8 +24,11 @@
 
 (defsystem "parfait/test"
   :depends-on ("parfait" "fiveam")
+  :serial t
   :pathname "test"
-  :components ((:file "tests"))
+  :components ((:file "package")
+               (:file "tests")
+               (:file "sem-tests"))
   :perform (test-op (op sys)
              (uiop:symbol-call :fiveam '#:run!
                                (uiop:find-symbol* :parfait/test-suite
