@@ -8,6 +8,8 @@
   :name "Parfait"
   :description "Primitives for working with parallelism."
   :licence "None"
+  :version (:read-file-form "version.sexp")
+  :homepage "https://github.com/williamyao/parfait"
   :author "William Yao <williamyaoh@gmail.com>"
   :maintainer "William Yao <williamyaoh@gmail.com>"
   :depends-on ("alexandria" "bordeaux-threads")
@@ -22,6 +24,8 @@
   :name "Parfait+Readtable"
   :description "Parfait, with included readtable for easier usage of DEREF"
   :licence "None"
+  :version (:read-file-form "version.sexp")
+  :homepage "https://github.com/williamyao/parfait"
   :author "William Yao <williamyaoh@gmail.com>"
   :maintainer "William Yao <williamyaoh@gmail.com>"
   :depends-on ("parfait" "named-readtables")
@@ -33,6 +37,8 @@
   :name "Parfait"
   :description "Test suite for Parfait"
   :licence "None"
+  :version (:read-file-form "version.sexp")
+  :homepage "https://github.com/williamyao/parfait"
   :author "William Yao <williamyaoh@gmail.com>"
   :maintainer "William Yao <williamyaoh@gmail.com>"
   :depends-on ("parfait" "fiveam")
