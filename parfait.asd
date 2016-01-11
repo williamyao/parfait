@@ -11,16 +11,20 @@
   :maintainer "William Yao <williamyaoh@gmail.com>"
   :depends-on ("alexandria" "bordeaux-threads")
   :serial t
-  :components ((:file "parfait"))
+  :pathname "src"
+  :components ((:file "package")
+               (:file "parfait"))
   :in-order-to ((test-op (test-op "parfait/test"))))
 
 (defsystem "parfait+readtable"
   :depends-on ("parfait" "named-readtables")
+  :pathname "src"
   :components ((:file "readtable")))
 
 (defsystem "parfait/test"
   :depends-on ("parfait" "fiveam")
-  :components ((:file "parfait-test"))
+  :pathname "test"
+  :components ((:file "tests"))
   :perform (test-op (op sys)
              (uiop:symbol-call :fiveam '#:run!
                                (uiop:find-symbol* :parfait/test-suite

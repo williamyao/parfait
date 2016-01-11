@@ -2,13 +2,6 @@
 ;;;;
 ;;;; Inspired by Clojure's core parallelism primitives.
 
-(defpackage #:parfait
-  (:use :cl :bordeaux-threads)
-  (:export #:deref
-           #:promise
-           #:deliver
-           #:future
-           #:delay))
 (in-package #:parfait)
 
 (defclass async-thunk ()
