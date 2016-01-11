@@ -6,7 +6,7 @@
 (defclass semaphore ()
   ((count :reader sem-count :initform 0 :initarg :count)
    (lock :reader lock :initform (make-recursive-lock))
-   (blocked :reader blocked :initform (%qmake))))
+   (blocked :initform (%qmake))))
 
 (defun sem-make (&optional (count 0))
   "Return a new semaphore, with the given count. If COUNT is not
