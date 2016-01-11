@@ -30,6 +30,6 @@ script:
   - cl -e "(cl:in-package :cl-user)
            (asdf/find-system:load-asd \"parfait.asd\")
            (asdf:load-system \"parfait/test\")
-           (uiop:quit (if (some (lambda (x) (typep x '5am::test-failure))
-                                (5am:run :iolib))
+           (uiop:quit (if (some #'5am::test-failure-p
+                                (5am:run 'parfait/test:parfait/test-suite))
                           1 0))"
