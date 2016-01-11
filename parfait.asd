@@ -7,6 +7,7 @@
 (defsystem "parfait"
   :name "Parfait"
   :description "Primitives for working with parallelism."
+  :licence "None"
   :author "William Yao <williamyaoh@gmail.com>"
   :maintainer "William Yao <williamyaoh@gmail.com>"
   :depends-on ("alexandria" "bordeaux-threads")
@@ -18,11 +19,22 @@
   :in-order-to ((test-op (test-op "parfait/test"))))
 
 (defsystem "parfait+readtable"
+  :name "Parfait+Readtable"
+  :description "Parfait, with included readtable for easier usage of DEREF"
+  :licence "None"
+  :author "William Yao <williamyaoh@gmail.com>"
+  :maintainer "William Yao <williamyaoh@gmail.com>"
   :depends-on ("parfait" "named-readtables")
+  :serial t
   :pathname "src"
   :components ((:file "readtable")))
 
 (defsystem "parfait/test"
+  :name "Parfait"
+  :description "Test suite for Parfait"
+  :licence "None"
+  :author "William Yao <williamyaoh@gmail.com>"
+  :maintainer "William Yao <williamyaoh@gmail.com>"
   :depends-on ("parfait" "fiveam")
   :serial t
   :pathname "test"
