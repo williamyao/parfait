@@ -31,14 +31,10 @@ install:
            (dolist (p '(:alexandria :bordeaux-threads :fiveam))
              (ql:quickload p :verbose t))"
 
-# this serves as an example of how to use the 'cl' script (provided by
-# CIM) to test your Lisp project. Here, we're using the RT framework
-# to do unit testing; other frameworks will have different ways of
-# determining whether a test suite fails or succeeds.
 script:
-  - cl -e "(cl:in-package :cl-user)
-           (asdf/find-system:load-asd \"parfait.asd\")
-           (asdf/load-system \"parfait/test\")
-           (uiop:quit (if (some #'5am::test-failure-p (5am:run 'parfait/test:parfait/test-suite))
-                          1
-                          0))"
+#  - cl -e "(cl:in-package :cl-user)
+#           (asdf/find-system:load-asd \"parfait.asd\")
+#           (asdf/load-system \"parfait/test\")
+#           (uiop:quit (if (some #'5am::test-failure-p (5am:run 'parfait/test:parfait/test-suite))
+#                          1
+#                          0))"
