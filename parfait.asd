@@ -7,7 +7,7 @@
 (defsystem "parfait"
   :name "Parfait"
   :description "Primitives for working with parallelism."
-  :licence "None"
+  :licence "Public domain"
   :version (:read-file-form "version.sexp")
   :homepage "https://github.com/williamyao/parfait"
   :author "William Yao <williamyaoh@gmail.com>"
@@ -23,7 +23,7 @@
 (defsystem "parfait+readtable"
   :name "Parfait+Readtable"
   :description "Parfait, with included readtable for easier usage of DEREF"
-  :licence "None"
+  :licence "Public domain"
   :version (:read-file-form "version.sexp")
   :homepage "https://github.com/williamyao/parfait"
   :author "William Yao <williamyaoh@gmail.com>"
@@ -36,7 +36,7 @@
 (defsystem "parfait/test"
   :name "Parfait"
   :description "Test suite for Parfait"
-  :licence "None"
+  :licence "Public domain"
   :version (:read-file-form "version.sexp")
   :homepage "https://github.com/williamyao/parfait"
   :author "William Yao <williamyaoh@gmail.com>"
