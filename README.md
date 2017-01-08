@@ -1,6 +1,6 @@
 # Parfait
 
-[![Build Status](https://travis-ci.org/williamyao/parfait.svg?branch=master)](https://travis-ci.org/williamyao/parfait)
+[![Build Status](https://travis-ci.org/williamyaoh/parfait.svg?branch=master)](https://travis-ci.org/williamyaoh/parfait)
 
 Parallelism is hard. Parfait provides some primitives to make it
 easier. Particularly, Parfait focuses on providing primitives for
